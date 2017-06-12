@@ -28,7 +28,13 @@ module AthenaHealth
     #
     # New Insurance Attributes - RK
     #
-    attribute :policynumber,                             String
+    attribute :policynumber,                        String
+    attribute :insurancepolicyholdermiddlename,     String
+    attribute :insurancepolicyholderssn,            String
+    attribute :insurancepolicyholderaddress1,       String
+    attribute :insurancepolicyholdercity,           String
+    attribute :insurancepolicyholderstate,          String
+    attribute :insurancepolicyholderzip,           String
 
   end
 end
