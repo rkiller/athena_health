@@ -24,5 +24,11 @@ module AthenaHealth
     attribute :insurancepolicyholdercountryiso3166, String
     attribute :eligibilitymessage,                  String
     attribute :ircname,                             String
+
+    #
+    # New Insurance Attributes - RK
+    #
+    attribute :policynumber,                             String
+
   end
 end

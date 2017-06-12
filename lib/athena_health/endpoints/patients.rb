@@ -374,6 +374,33 @@ module AthenaHealth
           body: params.merge!(image: image)
         )
       end
+
+      #
+      # New Patient Methods - RK
+      #
+
+      def create_patient_admin_document(practice_id:, department_id:, patient_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin",
+            method: :post,
+            body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def delete_patient_admin_document(practice_id:, patient_id:, admin_id:)
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
+            method: :delete
+        )
+      end
+
+      def patient_satisfaction(practice_id:, department_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patientsatisfaction",
+            method: :get,
+            body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
     end
   end
 end
