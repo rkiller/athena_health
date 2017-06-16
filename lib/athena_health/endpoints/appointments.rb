@@ -244,7 +244,7 @@ module AthenaHealth
       # PUT /v1/{practiceid}/appointments/{appointmentid}/accidentdata
       def update_accident_data(practice_id:, appointment_id:, params: {})
         @api.call(
-            endpoint: "#{practice_id}/appointments/{appointment_id}/accidentdata",
+            endpoint: "#{practice_id}/appointments/#{appointment_id}/accidentdata",
             method: :put,
             params: params
         )
