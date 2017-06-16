@@ -236,6 +236,18 @@ module AthenaHealth
 
         AppointmentCollection.new(response)
       end
+
+      #
+      # New Appointment Methods - RK
+      #
+
+      # PUT /v1/{practiceid}/appointments/{appointmentid}/accidentdata
+      def update_accident_data(practice_id:, appointment_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/appointments/{appointment_id}/accidentdata",
+            method: :put,
+            params: params
+        )
     end
   end
 end
