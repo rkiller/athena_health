@@ -248,6 +248,7 @@ module AthenaHealth
             method: :put,
             params: params
         )
+      end
     end
   end
 end
