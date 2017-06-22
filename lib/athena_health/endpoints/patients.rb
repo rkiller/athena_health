@@ -398,7 +398,7 @@ module AthenaHealth
         @api.call(
             endpoint: "#{practice_id}/patientsatisfaction",
             method: :get,
-            body: params.merge!(departmentid: department_id.to_s)
+            params: params.merge!(departmentid: department_id.to_s)
         )
       end
     end
