@@ -402,6 +402,14 @@ module AthenaHealth
         )
       end
 
+      def get_patient_custom_fields(practice_id:, department_id:, patient_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/customfields",
+            method: :get,
+            params: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
       def update_patient_custom_fields(practice_id:, department_id:, patient_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/customfields",
