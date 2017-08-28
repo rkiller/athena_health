@@ -20,6 +20,17 @@ module AthenaHealth
 
         Provider.new(response.first)
       end
+
+      #
+      # Added by Clineva
+      #
+      def get_inbox_count(practice_id:, provider_id:)
+        response = @api.call(
+          endpoint: "#{practice_id}/providers/#{provider_id}/inbox/counts",
+          method: :get,
+          params: params
+        )
+      end
     end
   end
 end
