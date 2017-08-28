@@ -37,6 +37,17 @@ module AthenaHealth
         )
         EncounterSummary.new(response)
       end
+
+      #
+      # Added by Clineva
+      #
+
+      def encounter_services(practice_id:, encounter_id:)
+        response = @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/services",
+          method: :get
+        )
+      end
     end
   end
 end
