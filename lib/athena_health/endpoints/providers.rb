@@ -27,8 +27,7 @@ module AthenaHealth
       def get_inbox_count(practice_id:, provider_id:)
         response = @api.call(
           endpoint: "#{practice_id}/providers/#{provider_id}/inbox/counts",
-          method: :get,
-          params: params
+          method: :get
         )
       end
     end
