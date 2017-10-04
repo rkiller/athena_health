@@ -426,6 +426,15 @@ module AthenaHealth
         )
       end
 
+      def get_patient_document(practice_id:, patient_id:, document_id:, params: {})
+      	@api.call(
+      	  endpoint: "#{practice_id}/chart/#{patient_id}/documentexport/#{document_id}",
+          method: :get,
+          params: params
+        )
+      end
+
+
     end
   end
 end
