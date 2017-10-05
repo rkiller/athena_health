@@ -23,7 +23,7 @@ module AthenaHealth
       @token = JSON.parse(response)['access_token']
     end
 
-    def call(endpoint:, method:, params: {}, body: {}, second_call: false)
+    def call(endpoint:, method:, params: {}, body: {}, second_call: false, raw: false)
       authenticate if @token.nil?
 
       response = Typhoeus::Request.new(
@@ -53,7 +53,7 @@ module AthenaHealth
         AthenaHealth::Error.new(code: response.response_code).render
       end
 
-      json_response(body)
+      raw ? body : json_response(body)
     end
 
     private
