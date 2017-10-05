@@ -433,7 +433,7 @@ module AthenaHealth
           params: params,
           raw: true
         )
-        StringIO.new(response)
+        StringIO.new(Base64.encode64(response))
       end
 
 
