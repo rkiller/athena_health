@@ -430,7 +430,8 @@ module AthenaHealth
       	response = @api.call(
       	  endpoint: "#{practice_id}/chart/#{patient_id}/documentexport/#{document_id}",
           method: :get,
-          params: params
+          params: params,
+          raw: true
         )
         StringIO.new(response)
       end
