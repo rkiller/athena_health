@@ -436,7 +436,23 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
 
+      def patient_statements(practice_id:, patient_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/patientstatement",
+          method: :get,
+          params: params
+        )
+      end
 
+      def get_patient_statement(practice_id:, patient_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/patients/{patientid}/patientstatementimage",
+          method: :get,
+          params: params,
+          raw: true
+        )
+        StringIO.new(Base64.encode64(response))
+      end
     end
   end
 end
