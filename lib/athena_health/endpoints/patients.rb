@@ -419,11 +419,13 @@ module AthenaHealth
       end
 
       def get_patient_photo(practice_id:, patient_id:, params: {})
-        @api.call(
+        response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/photo",
           method: :get,
-          params: params
+          params: params,
+          raw: true
         )
+        StringIO.new(Base64.encode64(response))
       end
 
       def get_patient_document(practice_id:, patient_id:, document_id:, params: {})
