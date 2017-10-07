@@ -446,7 +446,7 @@ module AthenaHealth
 
       def get_patient_statement(practice_id:, patient_id:, params: {})
         response = @api.call(
-          endpoint: "#{practice_id}/patients/{patientid}/patientstatementimage",
+          endpoint: "#{practice_id}/patients/#{patientid}/patientstatementimage",
           method: :get,
           params: params,
           raw: true
