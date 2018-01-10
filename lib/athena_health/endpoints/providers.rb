@@ -33,7 +33,7 @@ module AthenaHealth
 
       def get_staff_inbox(practice_id:, provider_name:)
         response = @api.call(
-          endpoint: "#{practice_id}/staff/#{provider_name + ' STAFF'}/inbox",
+          endpoint: "#{practice_id}/staff/#{provider_name}/inbox",
           method: :get
         )
       end
