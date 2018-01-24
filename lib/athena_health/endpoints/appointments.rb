@@ -94,11 +94,11 @@ module AthenaHealth
         AppointmentCollection.new(response)
       end
 
-      def cancel_appointment(practice_id:, appointment_id:, patient_id:, body: {})
+      def cancel_appointment(practice_id:, appointment_id:, patient_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/cancel",
           method: :put,
-          body: body.merge!(patientid: patient_id)
+          params: params.merge!(patientid: patient_id)
         )
       end
 
