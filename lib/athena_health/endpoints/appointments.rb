@@ -102,6 +102,13 @@ module AthenaHealth
         )
       end
 
+      def delete_appointment(practice_id:, appointment_id:)
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}",
+          method: :delete
+        )
+      end
+
       def appointment_notes(practice_id:, appointment_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
