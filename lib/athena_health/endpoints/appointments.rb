@@ -250,11 +250,11 @@ module AthenaHealth
         )
       end
 
-      def card_on_file(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, params: {})
+      def card_on_file(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
 	@api.call(
 	    endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
 	    method: :post,
-	    params: params.merge!(
+	    body: body.merge(
 	      departmentid: department_id
 	    )
 	)
