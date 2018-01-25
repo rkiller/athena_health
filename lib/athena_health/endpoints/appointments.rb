@@ -109,10 +109,11 @@ module AthenaHealth
         )
       end
 
-	  def freeze_appointment(practice_id:, appointment_id:)
+	  def freeze_appointment(practice_id:, appointment_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/freeze",
-          method: :put
+          method: :put,
+          params: params
         )
       end
       
