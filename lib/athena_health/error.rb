@@ -5,6 +5,7 @@ module AthenaHealth
   class NotFoundError             < StandardError; end
   class InternalServerError       < StandardError; end
   class ServiceUnavailableError   < StandardError; end
+  class TimeoutError   < StandardError; end
 
   class ValidationError < StandardError
     attr_reader :details
@@ -23,6 +24,7 @@ module AthenaHealth
       404 => NotFoundError,
       500 => InternalServerError,
       503 => ServiceUnavailableError,
+      504 => TimeoutError
     }
 
     def initialize(code:)
