@@ -458,7 +458,7 @@ module AthenaHealth
 
       def get_one_year_contracts(practice_id:, patient_id:, department_id:, params: {})
         @api.call(
-          endpoint: "/v1/#{practice_id}/patients/#{patientid}/collectpayment/oneyear",
+          endpoint: "/v1/#{practice_id}/patients/#{patient_id}/collectpayment/oneyear",
           method: :get,
           params: params.merge( departmentid: department_id )
         )
@@ -466,7 +466,7 @@ module AthenaHealth
 
       def get_single_appointment_contracts(practice_id:, patient_id:, department_id:, params: {})
         @api.call(
-          endpoint: "/v1/#{practice_id}/patients/#{patientid}/collectpayment/singleappointment",
+          endpoint: "/v1/#{practice_id}/patients/#{patient_id}/collectpayment/singleappointment",
           method: :get,
           params: params.merge( departmentid: department_id )
         )
@@ -474,7 +474,7 @@ module AthenaHealth
 
       def get_stored_cards(practice_id:, patient_id:, department_id:, params: {})
         @api.call(
-          endpoint: "/v1/#{practice_id}/patients/#{patientid}/collectpayment/storedcard",
+          endpoint: "/v1/#{practice_id}/patients/#{patient_id}/collectpayment/storedcard",
           method: :get,
           params: params.merge( departmentid: department_id )
         )
