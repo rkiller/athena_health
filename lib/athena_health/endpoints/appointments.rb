@@ -272,7 +272,7 @@ module AthenaHealth
         )
       end
 
-      def card_on_file(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
+      def card_on_file_agreement(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
 		@api.call(
 	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
 	    	method: :post,
@@ -282,7 +282,7 @@ module AthenaHealth
 		)
       end
 
-      def card_on_file_agreement(practice_id:, patient_id:, contract_id:, department_id:, cof_type:, body: {})
+      def email_card_on_file_agreement(practice_id:, patient_id:, contract_id:, department_id:, cof_type:, body: {})
 		@api.call(
 	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{contract_id}/emailagreement",
 	    	method: :post,
