@@ -455,41 +455,7 @@ module AthenaHealth
         )
         StringIO.new(Base64.encode64(response))
       end
-
-      def get_one_year_contracts(practice_id:, patient_id:, department_id:, params: {})
-        @api.call(
-          endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/oneyear",
-          method: :get,
-          params: params.merge( departmentid: department_id )
-        )
-      end
-
-      def get_single_appointment_contracts(practice_id:, patient_id:, department_id:, params: {})
-        @api.call(
-          endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/singleappointment",
-          method: :get,
-          params: params.merge( departmentid: department_id )
-        )
-      end
-
-      def card_on_file(practice_id:, patient_id:, department_id:, body: {})
-		@api.call(
-	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard",
-	    	method: :post,
-	    	body: body.merge(
-	      		departmentid: department_id
-	    	)
-		)
-      end
-
-      def get_stored_cards(practice_id:, patient_id:, department_id:, params: {})
-        @api.call(
-          endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard",
-          method: :get,
-          params: params.merge( departmentid: department_id )
-        )
-      end
-
+      
     end
   end
 end
