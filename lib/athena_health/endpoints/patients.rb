@@ -456,6 +456,14 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
       
+      def medication_history_consent(practice_id:, department_id:, patient_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/medicationhistoryconsentverified",
+          method: :post,
+          body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
     end
   end
 end
