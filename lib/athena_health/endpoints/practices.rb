@@ -20,6 +20,31 @@ module AthenaHealth
 
         PracticeCollection.new(response).practices.first
       end
+
+      def languages(practice_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/languages",
+          method: :get,
+          params: params
+        )
+      end
+
+      def ethnicities(practice_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/ethnicities",
+          method: :get,
+          params: params
+        )
+      end
+
+      def races(practice_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/races",
+          method: :get,
+          params: params
+        )
+      end
+
     end
   end
 end
