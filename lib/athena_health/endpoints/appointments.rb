@@ -272,6 +272,14 @@ module AthenaHealth
         )
       end
 
+      def update_booked_appointment(practice_id:, appointment_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/appointments/booked/#{appointment_id}",
+            method: :put,
+            params: params
+        )
+      end
+
       def card_on_file_agreement(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
 		@api.call(
 	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
