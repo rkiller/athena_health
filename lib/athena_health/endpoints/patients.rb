@@ -455,6 +455,14 @@ module AthenaHealth
         )
         StringIO.new(Base64.encode64(response))
       end
+
+      def get_patient_letter(practice_id:, patient_id:, letter_id:, params: {})
+      	response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/documents/#{letter_id}",
+          method: :get,
+          params: params
+        )
+      end
       
       def medication_history_consent(practice_id:, department_id:, patient_id:, params: {})
         @api.call(
