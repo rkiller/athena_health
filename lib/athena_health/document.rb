@@ -1,6 +1,7 @@
 module AthenaHealth
   class Document < BaseModel
   	attribute :documentid,			 Integer
+    attribute :letterid,             Integer
     attribute :prescriptionid,       Integer
     attribute :encounterid,          Integer
     attribute :providerid,           Integer
