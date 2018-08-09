@@ -458,7 +458,7 @@ module AthenaHealth
 
       def get_patient_letter(practice_id:, patient_id:, letter_id:, params: {})
       	response = @api.call(
-          endpoint: "#{practice_id}/patients/#{patient_id}/documents/#{letter_id}",
+          endpoint: "#{practice_id}/patients/#{patient_id}/documents/letter/#{letter_id}",
           method: :get,
           params: params
         )
