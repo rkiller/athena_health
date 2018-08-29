@@ -130,7 +130,7 @@ module AthenaHealth
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
           method: :post,
-          params: params
+          body: params
         )
       end
 
