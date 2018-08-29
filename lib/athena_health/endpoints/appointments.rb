@@ -126,11 +126,11 @@ module AthenaHealth
         NoteCollection.new(response)
       end
 
-      def create_appointment_note(practice_id:, appointment_id:, body: {})
+      def create_appointment_note(practice_id:, appointment_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
           method: :post,
-          body: body
+          body: params
         )
       end
 
