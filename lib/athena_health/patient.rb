@@ -98,6 +98,8 @@ module AthenaHealth
     attribute :guarantoremployerid,                  Integer
     attribute :employername,                         String
     attribute :employeraddress,                      String
+    
+    attribute :claimbalancedetails,                  Array[Claim]
 
     def fullname
       "#{firstname} #{middlename} #{lastname}"
