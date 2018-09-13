@@ -36,6 +36,17 @@ module AthenaHealth
 		)
       end
 
+      def make_payment(practice_id:, patient_id:, department_id:, storedcard_id:, body: {})
+		@api.call(
+	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard/#{storedcard_id}",
+	    	method: :post,
+	    	body: body.merge(
+	      		departmentid: department_id,
+	      		claimpayment: claim_payment
+	    	)
+		)
+      end
+
       def get_receipt(practice_id:, patient_id:, epayment_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
