@@ -55,6 +55,14 @@ module AthenaHealth
         )
       end	
 
+      def email_receipt(practice_id:, patient_id:, epayment_id:, body: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}/email",
+            method: :post,
+            body: body
+        )
+      end	
+
       def store_receipt(practice_id:, patient_id:, epayment_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}/signed",
