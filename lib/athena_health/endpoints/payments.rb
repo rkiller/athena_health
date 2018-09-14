@@ -40,10 +40,7 @@ module AthenaHealth
 		@api.call(
 	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard/#{storedcard_id}",
 	    	method: :post,
-	    	body: body.merge(
-	      		departmentid: department_id,
-	      		claimpayment: claim_payment
-	    	)
+	    	body: body.merge( departmentid: department_id )
 		)
       end
 
