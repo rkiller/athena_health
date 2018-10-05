@@ -483,7 +483,7 @@ module AthenaHealth
       def drivers_license(practice_id:, patient_id:, params: {})
       	response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
-          method: :get
+          method: :get,
           params: params
         )
       end
