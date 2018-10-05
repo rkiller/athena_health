@@ -337,6 +337,14 @@ module AthenaHealth
         )
       end
 
+      def get_patient_insurance_card_image(practice_id:, patient_id:, insurance_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/image", 
+          method: :get,
+          params: params
+        )
+      end
+
       def update_patient_insurance_card_image(practice_id:, patient_id:, insurance_id:, image:, params: {})
         @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/image", 
@@ -469,6 +477,14 @@ module AthenaHealth
           endpoint: "#{practice_id}/patients/#{patient_id}/medicationhistoryconsentverified",
           method: :post,
           body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def drivers_license(practice_id:, patient_id:, params: {})
+      	response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
+          method: :get
+          params: params
         )
       end
 
