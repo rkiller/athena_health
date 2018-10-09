@@ -341,8 +341,10 @@ module AthenaHealth
         @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/image", 
           method: :get,
-          params: params
+          params: params,
+          raw: true
         )
+        StringIO.new(Base64.encode64(response))
       end
 
       def update_patient_insurance_card_image(practice_id:, patient_id:, insurance_id:, image:, params: {})
@@ -484,8 +486,10 @@ module AthenaHealth
       	response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
           method: :get,
-          params: params
+          params: params,
+          raw: true
         )
+        StringIO.new(Base64.encode64(response))
       end
 
       def upload_drivers_license(practice_id:, patient_id:, params: {})
