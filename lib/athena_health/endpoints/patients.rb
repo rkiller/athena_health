@@ -338,7 +338,7 @@ module AthenaHealth
       end
 
       def get_patient_insurance_card_image(practice_id:, patient_id:, insurance_id:, params: {})
-        @api.call(
+        response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/image", 
           method: :get,
           params: params,
