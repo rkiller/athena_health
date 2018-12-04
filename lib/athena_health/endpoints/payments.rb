@@ -26,6 +26,14 @@ module AthenaHealth
         )
       end
 
+      def get_card_on_file(practice_id:, patient_id:, department_id:, params: {})
+		@api.call(
+	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard",
+	    	method: :get,
+	    	params: params.merge( departmentid: department_id )
+		)
+      end
+
       def card_on_file(practice_id:, patient_id:, department_id:, body: {})
 		@api.call(
 	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/storedcard",
