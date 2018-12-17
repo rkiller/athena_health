@@ -492,14 +492,11 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
 
-      def upload_drivers_license(practice_id:, department_id:, patient_id:, image:, params: {})
+      def upload_drivers_license(practice_id:, department_id:, patient_id:, params: {})
       	response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
           method: :post,
-          body: params.merge!(
-          	departmentid: department_id.to_s,
-          	image: image
-          	)
+          body: params.merge!(departmentid: department_id.to_s)
         )
       end
 
