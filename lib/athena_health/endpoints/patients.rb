@@ -496,7 +496,7 @@ module AthenaHealth
       	response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
           method: :post,
-          body: params.merge!(departmentid: department_id.to_s)
+          params: params.merge!(departmentid: department_id.to_s)
         )
       end
 
