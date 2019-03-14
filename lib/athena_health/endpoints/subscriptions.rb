@@ -12,7 +12,7 @@ module AthenaHealth
       end
 
       #https://api.athenahealth.com/v1/15000/claims/changed/subscription
-	  def create_patient(practice_id:, params: {})
+	  def subscribe_to_claim_events(practice_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/claims/changed/subscription",
           method: :post,
