@@ -20,5 +20,6 @@ module AthenaHealth
     include Endpoints::Configurations
     include Endpoints::Messages
     include Endpoints::Payments
+    include Endpoints::Subscriptions
   end
 end
