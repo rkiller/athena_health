@@ -1,6 +1,6 @@
 module AthenaHealth
   class Balance < BaseModel
-    attribute :balance,         Integer
+    attribute :balance,         Float
     attribute :departmentlist,  String
     attribute :providergroupid, Integer
     attribute :cleanbalance,    Boolean
