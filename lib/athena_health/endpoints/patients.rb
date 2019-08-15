@@ -404,6 +404,21 @@ module AthenaHealth
         )
       end
 
+      def create_patient_encounter_document(practice_id:, department_id:, patient_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/encounterdocument",
+            method: :post,
+            body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def delete_patient_encounter_document(practice_id:, patient_id:, admin_id:)
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/encounterdocument/#{encounter_id}",
+            method: :delete
+        )
+      end
+
       def patient_satisfaction(practice_id:, department_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patientsatisfaction",
