@@ -48,6 +48,22 @@ module AthenaHealth
           method: :get
         )
       end
+
+      def patient_locations(practice_id:, department_id:, params: {})
+        response = @api.call(
+          endpoint:  "#{practice_id}/chart/configuration/patientlocations",
+          method: :get,
+          params: params.merge!(departmentid: department_id)
+        )
+      end
+
+      def patient_statuses(practice_id:)
+        response = @api.call(
+          endpoint:  "#{practice_id}/chart/configuration/patientstatuses",
+          method: :get
+        )
+      end
+
     end
   end
 end
