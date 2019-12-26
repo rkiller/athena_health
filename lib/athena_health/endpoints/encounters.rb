@@ -49,11 +49,11 @@ module AthenaHealth
         )
       end
 
-      def patient_locations(practice_id:, department_id:, params: {})
+      def patient_locations(practice_id:, department_id:)
         response = @api.call(
           endpoint:  "#{practice_id}/chart/configuration/patientlocations",
           method: :get,
-          params: params.merge!(departmentid: department_id)
+          params: { departmentid: department_id }
         )
       end
 
