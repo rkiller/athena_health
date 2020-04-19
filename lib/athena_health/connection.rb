@@ -26,8 +26,8 @@ module AthenaHealth
     def call(endpoint:, method:, params: {}, headers: {}, body: {}, second_call: false, raw: false)
       authenticate if @token.nil?
 
-      header.merge!({ "Authorization" => "Bearer #{@token}"})
-      
+      headers.merge!({ "Authorization" => "Bearer #{@token}"})
+
       response = Typhoeus::Request.new(
         "#{@base_url}/#{@version}/#{endpoint}",
         method: method,
