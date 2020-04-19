@@ -80,8 +80,7 @@ module AthenaHealth
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
             method: :get,
-            params: params,
-            raw: true
+            params: params
         )
       end
 
@@ -90,7 +89,8 @@ module AthenaHealth
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
             method: :get,
             headers: { "Accept" => "application/pdf" },
-            params: params
+            params: params,
+            raw: true
         )
       end	
 
