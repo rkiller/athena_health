@@ -52,6 +52,14 @@ module AthenaHealth
 		)
       end
 
+      def receipts(practice_id:, patient_id:, department_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/receipts",
+            method: :get,
+            params: params.merge( departmentid: department_id )
+        )
+      end
+
       def get_receipt(practice_id:, patient_id:, epayment_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
@@ -72,6 +80,15 @@ module AthenaHealth
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
             method: :get,
+            params: params
+        )
+      end
+
+      def pdf_receipt(practice_id:, patient_id:, epayment_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/receipts/#{epayment_id}",
+            method: :get,
+            headers: { "Accept" => "application/pdf" },
             params: params
         )
       end	

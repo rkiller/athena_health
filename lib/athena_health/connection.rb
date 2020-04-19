@@ -23,13 +23,15 @@ module AthenaHealth
       @token = JSON.parse(response)['access_token']
     end
 
-    def call(endpoint:, method:, params: {}, body: {}, second_call: false, raw: false)
+    def call(endpoint:, method:, params: {}, headers: {}, body: {}, second_call: false, raw: false)
       authenticate if @token.nil?
 
+      header.merge!({ "Authorization" => "Bearer #{@token}"})
+      
       response = Typhoeus::Request.new(
         "#{@base_url}/#{@version}/#{endpoint}",
         method: method,
-        headers: { "Authorization" => "Bearer #{@token}"},
+        headers: headers,
         params: params,
         body: body
       ).run
