@@ -6,5 +6,6 @@ module AthenaHealth
     attribute :analytes,           Array[Analyte]
     attribute :description,        String
     attribute :orderid,            Integer
+    attribute :resultstatus,	   String
   end
 end
