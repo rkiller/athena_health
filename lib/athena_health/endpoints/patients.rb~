@@ -453,14 +453,6 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
 
-      def export_patient_document(practice_id:, department_id:, patient_id:, params: {})
-        @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/documentexport",
-          method: :post,
-          body: params.merge!(departmentid: department_id.to_s)
-        )
-      end
-
       def get_patient_document(practice_id:, patient_id:, document_id:, params: {})
       	response = @api.call(
       	  endpoint: "#{practice_id}/chart/#{patient_id}/documentexport/#{document_id}",
