@@ -23,19 +23,18 @@ module AthenaHealth
       end
 
       #https://api.athenahealth.com/v1/15000/claims/changed/subscription
-	  def subscribe_to_claim_events(practice_id:, params: {})
+      def subscribe_to_claim_events(practice_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/claims/changed/subscription",
           method: :post,
           body: params
         )
       end
-    end
 
-    #
-    # LABS
-    #
-    def get_lab_events(practice_id:, params: {})
+      #
+      # LABS
+      #
+      def get_lab_events(practice_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/labresults/changed/subscription",
           method: :get,
@@ -43,7 +42,7 @@ module AthenaHealth
         )
       end
       
-    def get_changed_labs(practice_id:, params: {})
+      def get_changed_labs(practice_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/labresults/changed",
           method: :get,
@@ -51,7 +50,7 @@ module AthenaHealth
         )
       end
 
-    def subscribe_to_lab_events(practice_id:, params: {})
+      def subscribe_to_lab_events(practice_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/labresults/changed/subscription",
           method: :post,
