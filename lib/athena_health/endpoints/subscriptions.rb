@@ -31,6 +31,14 @@ module AthenaHealth
         )
       end
 
+      def unsubscribe_to_claim_events(practice_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/claims/changed/subscription",
+            method: :delete,
+            body: params
+        )
+      end
+
       #
       # LABS
       #
@@ -58,6 +66,14 @@ module AthenaHealth
         )
       end
     
+	  def unsubscribe_to_lab_events(practice_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/labresults/changed/subscription",
+            method: :delete,
+            body: params
+        )
+      end
+
     end
   end
 end
