@@ -7,6 +7,14 @@ module AthenaHealth
       #https://api.athenahealth.com/v1/15000/claims/changed/subscription?showadditionalevents=XXX
       def get_claim_events(practice_id:, params: {})
         response = @api.call(
+          endpoint: "#{practice_id}/claims/changed/subscription/events",
+          method: :get,
+          params: params
+        )
+      end
+
+      def get_claim_subscription_status(practice_id:, params: {})
+        response = @api.call(
           endpoint: "#{practice_id}/claims/changed/subscription",
           method: :get,
           params: params
@@ -43,6 +51,14 @@ module AthenaHealth
       # LABS
       #
       def get_lab_events(practice_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/labresults/changed/subscription/events",
+          method: :get,
+          params: params
+        )
+      end
+
+      def get_lab_subscription_status(practice_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/labresults/changed/subscription",
           method: :get,
