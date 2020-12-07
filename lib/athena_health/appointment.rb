@@ -2,6 +2,7 @@ module AthenaHealth
   class Appointment < BaseModel
     attribute :appointmentconfirmationname, String
     attribute :appointmentid,               Integer
+    attribute :appointmentnotes,            String
     attribute :appointmentstatus,           String
     attribute :appointmenttype,             String
     attribute :appointmenttypeid,           Integer
