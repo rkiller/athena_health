@@ -2,22 +2,24 @@ require 'json'
 
 module AthenaHealth
   class Connection
-    BASE_URL    = 'https://api.athenahealth.com'.freeze
-    AUTH_PATH   = { 'v1' => 'oauth', 'preview1' => 'oauthpreview', 'openpreview1' => 'oauthopenpreview' }
-
+    
     def initialize(version:, key:, secret:, token: nil, base_url:)
       @version = version
       @key = key
       @secret = secret
       @token = token
-      @base_url = base_url || BASE_URL
+      @auth_url = "https://api.#{@version}.platform.athenahealth.com/oauth2/v1/token"
+      @base_url = base_url || "https://api.#{@version}.athenahealth.com/v1"
     end
 
     def authenticate
       response = Typhoeus.post(
-        "#{@base_url}/#{AUTH_PATH[@version]}/token",
+        @auth_url,
         userpwd: "#{@key}:#{@secret}",
-        body: { grant_type: 'client_credentials' }
+        body: { 
+        	grant_type: 'client_credentials',
+        	scope: 'athena/service/Athenanet.MDP.*' 
+        }
       ).response_body
 
       @token = JSON.parse(response)['access_token']
@@ -26,10 +28,10 @@ module AthenaHealth
     def call(endpoint:, method:, params: {}, headers: {}, body: {}, second_call: false, raw: false)
       authenticate if @token.nil?
 
-      headers.merge!({ "Authorization" => "Bearer #{@token}"})
+      headers.merge!({ "Authorization": "Bearer #{@token}"})
 
       response = Typhoeus::Request.new(
-        "#{@base_url}/#{@version}/#{endpoint}",
+        "#{@base_url}/#{endpoint}",
         method: method,
         headers: headers,
         params: params,
