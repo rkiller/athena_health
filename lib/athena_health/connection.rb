@@ -8,8 +8,9 @@ module AthenaHealth
       @key = key
       @secret = secret
       @token = token
-      @auth_url = "https://api.#{@version}.platform.athenahealth.com/oauth2/v1/token"
-      @base_url = base_url || "https://api.#{@version}.athenahealth.com/v1"
+      @environment = (@version == "production") ? 'api.platform.athenahealth.com' : 'api.preview.platform.athenahealth.com'
+      @auth_url = "https://#{@environment}/oauth2/v1/token"
+      @base_url = base_url || "https://#{@environment}/v1"
     end
 
     def authenticate
