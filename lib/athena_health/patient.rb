@@ -402,8 +402,8 @@ module AthenaHealth
     attribute :countrycode,                          String
     attribute :guarantoraddress1,                    String
     attribute :guarantoraddress2,                    String
-    attribute :consenttocallflag,                    Boolean
-    attribute :consenttotextyn,                      Boolean
+    attribute :consenttocall,   	                 Boolean
+    attribute :consenttotext,	                     Boolean
     attribute :donotcallyn,                          Boolean
     attribute :onlinestatementonlyyn,                String
     attribute :countrycode3166,                      String
