@@ -1,7 +1,7 @@
 module AthenaHealth
   class Facility < BaseModel
-    attribute :facilityid,   Integer
-    attribute :ncpdpid,		 Integer
+    attribute :facilityid,   String
+    attribute :ncpdpid,		 String
     attribute :name,         String
     attribute :city,         String
     attribute :pharmacytype, String
@@ -11,5 +11,6 @@ module AthenaHealth
     attribute :zipcode,      String
     attribute :state,        String
     attribute :phonenumber,  String
+    attribute :zipdistance,  String
   end
 end
