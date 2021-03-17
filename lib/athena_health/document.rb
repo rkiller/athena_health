@@ -20,5 +20,6 @@ module AthenaHealth
     attribute :orderid,              Integer
     attribute :labresultid,          Integer
     attribute :observations,         Array[Analyte]
+    attribute :pages,                Array[DocumentPage]
   end
 end

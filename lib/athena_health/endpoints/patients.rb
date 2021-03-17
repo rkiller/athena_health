@@ -389,6 +389,30 @@ module AthenaHealth
       # New Patient Methods - RK
       #
 
+      def get_patient_admin_document(practice_id:, patient_id:, admin_id:)
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
+            method: :get
+        )
+      end
+
+      def get_patient_admin_document_image(practice_id:, patient_id:, admin_id:, page_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}/pages/#{page_id}",
+          method: :get,
+          params: params,
+          raw: true
+        )
+        StringIO.new(Base64.encode64(response))
+      end
+
+      def get_patient_admin_document(practice_id:, patient_id:, admin_id:)
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
+            method: :get
+        )
+      end
+
       def create_patient_admin_document(practice_id:, department_id:, patient_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin",
