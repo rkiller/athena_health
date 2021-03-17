@@ -394,7 +394,7 @@ module AthenaHealth
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
             method: :get
         )
-        Document.new(response)
+        response.is_a?(Array) ? Document.new(response.first) : []
       end
 
       def get_patient_admin_document_image(practice_id:, patient_id:, admin_id:, page_id:, params: {})

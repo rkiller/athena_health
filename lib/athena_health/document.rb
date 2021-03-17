@@ -6,6 +6,7 @@ module AthenaHealth
     attribute :encounterid,          Integer
     attribute :providerid,           Integer
     attribute :priority,             Integer
+    attribute :adminid,              Integer
     attribute :assignedto,           String
     attribute :documentclass,        String
     attribute :createddatetime,      String
