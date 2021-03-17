@@ -407,13 +407,6 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
 
-      def get_patient_admin_document(practice_id:, patient_id:, admin_id:)
-        @api.call(
-            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
-            method: :get
-        )
-      end
-
       def create_patient_admin_document(practice_id:, department_id:, patient_id:, params: {})
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin",
