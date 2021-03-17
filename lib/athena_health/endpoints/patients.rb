@@ -390,10 +390,11 @@ module AthenaHealth
       #
 
       def get_patient_admin_document(practice_id:, patient_id:, admin_id:)
-        @api.call(
+        response = @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
             method: :get
         )
+        Document.new(response)
       end
 
       def get_patient_admin_document_image(practice_id:, patient_id:, admin_id:, page_id:, params: {})
