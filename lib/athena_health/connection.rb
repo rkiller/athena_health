@@ -3,14 +3,14 @@ require 'json'
 module AthenaHealth
   class Connection
     
-    def initialize(version:, key:, secret:, token: nil, base_url:)
+    def initialize(version:, key:, secret:, token: nil, auth_url:, base_url:)
       @version = version
       @key = key
       @secret = secret
       @token = token
-      @environment = (@version == "production") ? 'api.platform.athenahealth.com' : 'api.preview.platform.athenahealth.com'
-      @auth_url = "https://#{@environment}/oauth2/v1/token"
-      @base_url = base_url || "https://#{@environment}/v1"
+      environment = (@version == "production") ? 'api.platform.athenahealth.com' : 'api.preview.platform.athenahealth.com'
+      @auth_url = auth_url || "https://#{environment}/oauth2/v1/token"
+      @base_url = base_url || "https://#{environment}/v1"
     end
 
     def authenticate
