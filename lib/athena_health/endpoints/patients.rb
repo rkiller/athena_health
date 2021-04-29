@@ -325,7 +325,15 @@ module AthenaHealth
         @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances",
           method: :put,
-          params: params.merge!(sequencenumber: sequence_number)
+          body: params.merge!(sequencenumber: sequence_number)
+        )
+      end
+
+      def update_patient_insurance_package(practice_id:, patient_id:, insurance_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}",
+          method: :put,
+          body: params
         )
       end
 
@@ -334,6 +342,13 @@ module AthenaHealth
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances",
           method: :delete,
           params: params.merge!(sequencenumber: sequence_number)
+        )
+      end
+
+      def delete_patient_insurance_package(practice_id:, patient_id:, insurance_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}",
+          method: :delete
         )
       end
 
