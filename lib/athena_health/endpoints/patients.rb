@@ -486,6 +486,13 @@ module AthenaHealth
         StringIO.new(Base64.encode64(response))
       end
 
+      def delete_patient_photo(practice_id:, patient_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/photo",
+          method: :delete
+        )
+      end
+
       def export_patient_document(practice_id:, department_id:, patient_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/chart/#{patient_id}/documentexport",
@@ -553,6 +560,13 @@ module AthenaHealth
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
           method: :post,
           body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def delete_drivers_license(practice_id:, patient_id:, params: {})
+      	@api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
+          method: :delete
         )
       end
 
