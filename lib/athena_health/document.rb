@@ -18,6 +18,7 @@ module AthenaHealth
     attribute :encounterdate,        String
     attribute :lastmodifieddatetime, String
     attribute :documentsubclass,     String
+    attribute :internalnote,		 String
     attribute :orderid,              Integer
     attribute :labresultid,          Integer
     attribute :observations,         Array[Analyte]
