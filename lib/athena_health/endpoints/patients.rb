@@ -530,7 +530,7 @@ module AthenaHealth
       end
 
       def get_patient_letter(practice_id:, patient_id:, letter_id:, params: {})
-      	response = @api.call(
+      	@api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/documents/letter/#{letter_id}",
           method: :get,
           params: params
@@ -556,7 +556,7 @@ module AthenaHealth
       end
 
       def upload_drivers_license(practice_id:, department_id:, patient_id:, params: {})
-      	response = @api.call(
+      	@api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/driverslicense",
           method: :post,
           body: params.merge!(departmentid: department_id.to_s)
@@ -570,6 +570,12 @@ module AthenaHealth
         )
       end
 
+      def benefitdetails(practice_id:, patient_id:, insurance_id:)
+      	@api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}//insurances/#{insurance_id}/benefitdetails",
+          method: :get
+        )
+      end
     end
   end
 end
