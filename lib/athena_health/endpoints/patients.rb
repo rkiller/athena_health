@@ -572,7 +572,7 @@ module AthenaHealth
 
       def benefitdetails(practice_id:, patient_id:, insurance_id:)
       	@api.call(
-          endpoint: "#{practice_id}/patients/#{patient_id}//insurances/#{insurance_id}/benefitdetails",
+          endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/benefitdetails",
           method: :get
         )
       end
