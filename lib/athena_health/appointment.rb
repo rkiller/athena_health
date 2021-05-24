@@ -39,6 +39,7 @@ module AthenaHealth
 	attribute :startcheckoutdatetime,        String 
     attribute :templateappointmentid,       Integer
     attribute :urgent,                      Boolean
+    attribute :insurances,         			Array[Insurance]
 
     def appointment_status
         {
