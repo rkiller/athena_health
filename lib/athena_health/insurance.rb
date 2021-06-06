@@ -34,7 +34,8 @@ module AthenaHealth
     attribute :insurancepolicyholderaddress1,       String
     attribute :insurancepolicyholdercity,           String
     attribute :insurancepolicyholderstate,          String
-    attribute :insurancepolicyholderzip,           String
+    attribute :insurancepolicyholderzip,            String
+    attribute :cancelled,                           String
 
   end
 end
