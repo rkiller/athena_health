@@ -6,8 +6,9 @@ module AthenaHealth
     attribute :analytes,           Array[Analyte]
     attribute :description,        String
     attribute :orderid,            Integer
-    attribute :resultstatus,	   String
+    attribute :resultstatus,	     String
     attribute :documentid,         String
-    attribute :status,			   String
+    attribute :resultstatus,       String
+    attribute :internalnote,       String
   end
 end
