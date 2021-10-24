@@ -430,6 +430,14 @@ module AthenaHealth
         )
       end
 
+      def update_patient_admin_document(practice_id:, patient_id:, admin_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
+            method: :put,
+            body: params
+        )
+      end
+
       def delete_patient_admin_document(practice_id:, patient_id:, admin_id:)
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}",
