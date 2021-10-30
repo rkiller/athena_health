@@ -9,7 +9,16 @@ module AthenaHealth
         )
       end
 
-      def patient_lab_result_timestamp(practice_id:, lab_result_id:, params: {})
+      def get_lab_result_notes(practice_id:, lab_result_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/documents/labresult/#{lab_result_id}/actions",
+          method: :get,
+          params: params
+        )
+        ActionnoteCollection.new(response)
+      end
+
+      def add_lab_result_note(practice_id:, lab_result_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/documents/labresult/#{lab_result_id}/actions",
           headers: { "Content-Type" => "application/x-www-form-urlencoded" },
