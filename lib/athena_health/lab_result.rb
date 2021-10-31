@@ -8,7 +8,6 @@ module AthenaHealth
     attribute :orderid,            Integer
     attribute :resultstatus,	     String
     attribute :documentid,         String
-    attribute :resultstatus,       String
     attribute :internalnote,       String
   end
 end
