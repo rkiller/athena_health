@@ -162,6 +162,13 @@ module AthenaHealth
         )
       end
 
+      def check_out(practice_id:, appointment_id:)
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/checkout",
+          method: :post
+        )
+      end
+
       def reschedule_appointment(practice_id:, patient_id:, appointment_id:, new_appointment_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/reschedule",
