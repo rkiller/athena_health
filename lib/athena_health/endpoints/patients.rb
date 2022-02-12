@@ -538,11 +538,12 @@ module AthenaHealth
       end
 
       def patient_letters(practice_id:, department_id:, patient_id:, params: {})
-        @api.call(
+        respose = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/documents/letter",
           method: :get,
           params: params.merge!(departmentid: department_id.to_s)
         )
+        LetterCollection.new(response)
       end
 
       def get_patient_letter(practice_id:, patient_id:, letter_id:, params: {})
