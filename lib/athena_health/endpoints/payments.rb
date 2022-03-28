@@ -101,6 +101,13 @@ module AthenaHealth
             body: params
         )
       end
+
+      def outstanding_claims(practice_id:, patient_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/#{patient_id}/claims/patientoutstanding",
+            method: :get,
+            params: params
+        )
     end
   end
 end
