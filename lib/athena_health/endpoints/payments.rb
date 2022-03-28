@@ -108,6 +108,7 @@ module AthenaHealth
             method: :get,
             params: params
         )
+      end
     end
   end
 end
