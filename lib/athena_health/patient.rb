@@ -346,7 +346,7 @@ module AthenaHealth
     attribute :contactpreference_appointment_phone,  Boolean
     attribute :contactpreference_billing_sms,        Boolean
     attribute :contactpreference_billing_email,      Boolean
-    attribute :defaultpharmacyncpdpid,				 String
+    attribute :defaultpharmacyncpdpid,				       String
     attribute :firstappointment,                     String
     attribute :lastappointment,                      String
     attribute :patientphotourl,                      String
@@ -403,8 +403,8 @@ module AthenaHealth
     attribute :countrycode,                          String
     attribute :guarantoraddress1,                    String
     attribute :guarantoraddress2,                    String
-    attribute :consenttocall,   	                 Boolean
-    attribute :consenttotext,	                     Boolean
+    attribute :consenttocall,   	                   Boolean
+    attribute :consenttotext,	                       Boolean
     attribute :donotcallyn,                          Boolean
     attribute :onlinestatementonlyyn,                String
     attribute :countrycode3166,                      String

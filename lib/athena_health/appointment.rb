@@ -33,10 +33,10 @@ module AthenaHealth
     attribute :scheduleddatetime,           String
     attribute :starttime,                   String
     attribute :startcheckin,               	String
-	attribute :stopcheckin,                	String
-	attribute :stopintakedatetime,         	String
-	attribute :stopexamdatetime,           	String
-	attribute :startcheckoutdatetime,        String 
+	  attribute :stopcheckin,                	String
+	  attribute :stopintakedatetime,         	String
+	  attribute :stopexamdatetime,           	String
+	  attribute :startcheckoutdatetime,        String 
     attribute :templateappointmentid,       Integer
     attribute :urgent,                      Boolean
     attribute :insurances,         			Array[Insurance]
