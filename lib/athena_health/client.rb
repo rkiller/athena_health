@@ -11,6 +11,7 @@ module AthenaHealth
       )
     end
 
+    include Endpoints::Claims
     include Endpoints::Practices
     include Endpoints::Departments
     include Endpoints::Patients
