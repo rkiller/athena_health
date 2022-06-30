@@ -63,14 +63,14 @@ module AthenaHealth
     attribute :chargeamount,            String
     attribute :claimcreateddate,        String
     attribute :claimid,                 Integer
-    attribute :customfields,            Hash[Symbol => Array[CustomFields]]
+    attribute :customfields,            Array[CustomFields]
     attribute :departmentid,            Integer
-    attribute :diagnoses,               Hash[Symbol => Array[Diagnosis]]
+    attribute :diagnoses,               Array[Diagnosis]
     attribute :patientid,               Integer
     attribute :patientpayer,            Hash
     attribute :primaryinsurancepayer,   Hash
     attribute :secondaryinsurancepayer, Hash
-    attribute :procedures,              Hash[Symbol => Array[Procedure]]
+    attribute :procedures,              Array[Procedure]
     attribute :referralauthid,          Integer
     attribute :referringproviderid,     Integer
     attribute :reserved19,              String
