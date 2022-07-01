@@ -8,8 +8,8 @@ module AthenaHealth
           method: :get,
           params: params
         )
-        puts response
-        Claim.new(response.first)
+        
+        Claim.new(response)
       end
 
     end
