@@ -422,7 +422,7 @@ module AthenaHealth
     attribute :employerzip,                          String
 
     attribute :portalstatus,                         Array[PortalStatus]
-    attribute :claimbalancedetails,                  Array[Claim]
+    attribute :claimbalancedetails,                  Array[ClaimBalanceDetail]
 
     def fullname
       "#{firstname} #{middlename} #{lastname}"
