@@ -17,7 +17,8 @@ module AthenaHealth
     attribute :date,                        String
     attribute :departmentid,                Integer
     attribute :duration,                    Integer
-    attribute :encounterid,					Integer
+    attribute :encounterid,					        Integer
+    attribute :encounterstate,              String
     attribute :encounterstatus,             String
     attribute :frozen,                      Boolean
     attribute :hl7providerid,              	Integer
