@@ -610,6 +610,22 @@ module AthenaHealth
           body: params.merge!(departmentid: department_id.to_s)
         )
       end
+
+      def update_chart_alert(practice_id:, patient_id:, department_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/chartalert",
+          method: :put,
+          body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def delete_chart_alert(practice_id:, patient_id:, department_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/chartalert",
+          method: :delete,
+          body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
     end
   end
 end
