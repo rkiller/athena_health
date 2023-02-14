@@ -594,6 +594,22 @@ module AthenaHealth
           params: params
         )
       end
+
+      def get_chart_alerts(practice_id:, patient_id:, department_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/chartalert",
+          method: :get,
+          params: params.merge!(departmentid: department_id.to_s)
+        )
+      end
+
+      def create_chart_alert(practice_id:, patient_id:, department_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/chartalert",
+          method: :post,
+          body: params.merge!(departmentid: department_id.to_s)
+        )
+      end
     end
   end
 end
