@@ -80,12 +80,12 @@ module AthenaHealth
         AppointmentCollection.new(response)
       end
 
-      def multipledepartment_booked_appointments(practice_id:, department_id:, start_date:, end_date:, params: {})
+      # Supply departmentid's as part of params hash
+      def multipledepartment_booked_appointments(practice_id:, start_date:, end_date:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/appointments/booked/multipledepartment",
           method: :get,
           params: params.merge!(
-            departmentid: department_id,
             startdate: start_date,
             enddate: end_date
           )

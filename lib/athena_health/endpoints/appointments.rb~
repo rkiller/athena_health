@@ -94,29 +94,43 @@ module AthenaHealth
         AppointmentCollection.new(response)
       end
 
-      def cancel_appointment(practice_id:, appointment_id:, patient_id:, body: {})
+      def cancel_appointment(practice_id:, appointment_id:, patient_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/cancel",
           method: :put,
-          body: body.merge!(patientid: patient_id)
+          params: params.merge!(patientid: patient_id)
         )
       end
 
+      def delete_appointment(practice_id:, appointment_id:)
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}",
+          method: :delete
+        )
+      end
+
+	  def freeze_appointment(practice_id:, appointment_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/freeze",
+          method: :put,
+          params: params
+        )
+      end
+      
       def appointment_notes(practice_id:, appointment_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
           method: :get,
           params: params
         )
-
         NoteCollection.new(response)
       end
 
-      def create_appointment_note(practice_id:, appointment_id:, note_text:)
+      def create_appointment_note(practice_id:, appointment_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
           method: :post,
-          body: { notetext: note_text }
+          body: params
         )
       end
 
@@ -137,6 +151,20 @@ module AthenaHealth
       def check_in(practice_id:, appointment_id:)
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/checkin",
+          method: :post
+        )
+      end
+
+      def check_in_requirements(practice_id:, appointment_id:)
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/checkin",
+          method: :get
+        )
+      end
+
+      def check_out(practice_id:, appointment_id:)
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/checkout",
           method: :post
         )
       end
@@ -217,6 +245,14 @@ module AthenaHealth
         InsuranceCollection.new(response)
       end
 
+      def update_appointment_insurances(practice_id:, appointment_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/insurances",
+          method: :put,
+          params: params
+        )
+      end
+
       def create_appointment_subscription(practice_id:, params: {})
         @api.call(
           endpoint: "#{practice_id}/appointments/changed/subscription",
@@ -250,14 +286,42 @@ module AthenaHealth
         )
       end
 
-      def card_on_file(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, params: {})
-	@api.call(
-	    endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
-	    method: :post,
-	    params: params.merge!(
-	      departmentid: department_id
-	    )
-	)
+      def update_booked_appointment(practice_id:, appointment_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/appointments/booked/#{appointment_id}",
+            method: :put,
+            params: params
+        )
+      end
+
+      def card_on_file_agreement(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
+		    @api.call(
+	    	  endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
+	    	  method: :post,
+	    	  body: body.merge(
+	      		departmentid: department_id
+	    	  )
+		    )
+      end
+
+      def cancel_card_on_file_agreement(practice_id:, patient_id:, appointment_id:, department_id:, cof_type:, body: {})
+        @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{appointment_id}",
+          method: :delete,
+          body: body.merge(
+            departmentid: department_id
+          )
+        )
+      end
+
+      def email_card_on_file_agreement(practice_id:, patient_id:, contract_id:, department_id:, cof_type:, body: {})
+		@api.call(
+	    	endpoint: "#{practice_id}/patients/#{patient_id}/collectpayment/#{cof_type}/#{contract_id}/emailagreement",
+	    	method: :post,
+	    	body: body.merge(
+	      		departmentid: department_id
+	    	)
+		)
       end
 
     end
