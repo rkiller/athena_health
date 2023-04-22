@@ -6,7 +6,6 @@ module AthenaHealth
           endpoint: "#{practice_id}/chart/encounter/#{encounter_id}",
           method: :get
         )
-
         Encounter.new(response.first)
       end
 
@@ -47,6 +46,7 @@ module AthenaHealth
           endpoint:  "#{practice_id}/encounter/#{encounter_id}/services",
           method: :get
         )
+        EncounterService.new(response)
       end
 
       def patient_locations(practice_id:, department_id:)

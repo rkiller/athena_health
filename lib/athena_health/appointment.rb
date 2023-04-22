@@ -37,10 +37,10 @@ module AthenaHealth
 	  attribute :stopcheckin,                	String
 	  attribute :stopintakedatetime,         	String
 	  attribute :stopexamdatetime,           	String
-	  attribute :startcheckoutdatetime,        String 
+	  attribute :startcheckoutdatetime,       String
     attribute :templateappointmentid,       Integer
     attribute :urgent,                      Boolean
-    attribute :insurances,         			Array[Insurance]
+    attribute :insurances,         			    Array[Insurance]
 
     def appointment_status
         {
