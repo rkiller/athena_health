@@ -1,13 +1,7 @@
 # {
 #   "note": "string",
 #   "ranking": 0,
-#   "icdcodes": [
-#     {
-#       "code": "string",
-#       "codeset": "string",
-#       "description": "string"
-#     }
-#   ],
+#   "icdcodes": [],
 #   "laterality": "string",
 #   "snomedcode": 0,
 #   "description": "string",
