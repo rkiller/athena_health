@@ -14,10 +14,10 @@ module AthenaHealth
           endpoint: "#{practice_id}/chart/encounter/#{encounter_id}/orders",
           method: :get
         )
-        orders_collection = []
-        response.each {|x| orders_collection << OrderCollection.new(x)}
-
-        orders_collection
+        #orders_collection = []
+        #response.each {|x| orders_collection << OrderCollection.new(x)}
+        #orders_collection
+        OrderCollection.new(response)
       end
 
       def encounter_order(practice_id:, encounter_id:, order_id:)
@@ -47,6 +47,46 @@ module AthenaHealth
           method: :get
         )
         EncounterService.new(response)
+      end
+
+      def encounter_hpi_summary(practice_id:, encounter_id:)
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/hpi",
+          method: :get,
+          params: { showstructured: false}
+        )
+      end
+
+      def encounter_ros_summary(practice_id:, encounter_id:)
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/reviewofsystems",
+          method: :get,
+          params: { showstructured: false}
+        )
+      end
+
+      def encounter_exam_summary(practice_id:, encounter_id:)
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/physicalexam",
+          method: :get,
+          params: { showstructured: false}
+        )
+      end
+
+      def encounter_goals_summary(practice_id:, encounter_id:)
+        response = @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/patientgoals",
+          method: :get
+        )
+        EncounterGoals.new(response)
+      end
+
+      def encounter_assessment(practice_id:, encounter_id:)
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/assessment",
+          method: :get,
+          params: { showstructured: false}
+        )
       end
 
       def patient_locations(practice_id:, department_id:)
