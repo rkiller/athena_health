@@ -14,9 +14,6 @@ module AthenaHealth
           endpoint: "#{practice_id}/chart/encounter/#{encounter_id}/orders",
           method: :get
         )
-        #orders_collection = []
-        #response.each {|x| orders_collection << OrderCollection.new(x)}
-        #orders_collection
         OrderCollection.new(response.first)
       end
 
@@ -25,7 +22,6 @@ module AthenaHealth
           endpoint: "#{practice_id}/chart/encounter/#{encounter_id}/orders/#{order_id}",
           method: :get
         )
-
         Order.new(response)
       end
 
@@ -51,7 +47,7 @@ module AthenaHealth
 
       def encounter_hpi_summary(practice_id:, encounter_id:)
         @api.call(
-          endpoint:  "#{practice_id}/encounter/#{encounter_id}/hpi",
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/hpi",
           method: :get,
           params: { showstructured: false}
         )
@@ -59,7 +55,7 @@ module AthenaHealth
 
       def encounter_ros_summary(practice_id:, encounter_id:)
         @api.call(
-          endpoint:  "#{practice_id}/encounter/#{encounter_id}/reviewofsystems",
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/reviewofsystems",
           method: :get,
           params: { showstructured: false}
         )
@@ -67,7 +63,7 @@ module AthenaHealth
 
       def encounter_exam_summary(practice_id:, encounter_id:)
         @api.call(
-          endpoint:  "#{practice_id}/encounter/#{encounter_id}/physicalexam",
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/physicalexam",
           method: :get,
           params: { showstructured: false}
         )
@@ -75,7 +71,7 @@ module AthenaHealth
 
       def encounter_goals_summary(practice_id:, encounter_id:)
         response = @api.call(
-          endpoint:  "#{practice_id}/encounter/#{encounter_id}/patientgoals",
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals",
           method: :get
         )
         EncounterGoals.new(response)
@@ -83,7 +79,7 @@ module AthenaHealth
 
       def encounter_assessment(practice_id:, encounter_id:)
         @api.call(
-          endpoint:  "#{practice_id}/encounter/#{encounter_id}/assessment",
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/assessment",
           method: :get,
           params: { showstructured: false}
         )
