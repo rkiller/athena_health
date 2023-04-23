@@ -17,7 +17,7 @@ module AthenaHealth
         #orders_collection = []
         #response.each {|x| orders_collection << OrderCollection.new(x)}
         #orders_collection
-        OrderCollection.new(response)
+        OrderCollection.new(response.first)
       end
 
       def encounter_order(practice_id:, encounter_id:, order_id:)
