@@ -15,7 +15,7 @@ module AthenaHealth
 			#   "ordering": "string"
 			# }
 			def find_employer(params: {})
-				response = @api.call(
+				@api.call(
 					endpoint: "#{practice_id}/employers",
 					method: :get,
 					params: params
@@ -27,7 +27,7 @@ module AthenaHealth
 			#   "employerid": 0
 			# }
 			def create_employer(params: {})
-				response = @api.call(
+				@api.call(
 					endpoint: "#{practice_id}/employers",
 					method: :post,
 					body: params

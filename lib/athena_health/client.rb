@@ -24,5 +24,6 @@ module AthenaHealth
     include Endpoints::Payments
     include Endpoints::Subscriptions
     include Endpoints::Documents
+    include Endpoints::Employers
   end
 end
