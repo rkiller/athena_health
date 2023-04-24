@@ -19,7 +19,7 @@ module AthenaHealth
 					method: :get,
 					params: params
 				)
-				FeescheduleProcedure.new(response)
+				FeescheduleProcedure.new(response.first)
 			end
 
 		end
