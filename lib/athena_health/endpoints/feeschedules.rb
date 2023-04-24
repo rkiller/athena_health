@@ -15,7 +15,7 @@ module AthenaHealth
 			# }
 			def check_procedure(practice_id:, params: {})
 				response = @api.call(
-					endpoint: "#{practice_id}/employers",
+					endpoint: "#{practice_id}/feeschedules/checkprocedure",
 					method: :get,
 					params: params
 				)
