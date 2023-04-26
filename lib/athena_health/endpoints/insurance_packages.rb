@@ -20,6 +20,17 @@ module AthenaHealth
 
         InsurancePackageCollection.new(response)
       end
+
+      # POST
+      # /v1/{practiceid}/insurancepackages/configuration/locallyadministered
+      # claimformat: CorporateBilling / CMS1500
+      def create_locally_administered_insurance_package(practice_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/insurancepackages/configuration/locallyadministered",
+          method: :post,
+          body: params
+        )
+      end
     end
   end
 end
