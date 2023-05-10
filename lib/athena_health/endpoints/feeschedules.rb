@@ -34,7 +34,6 @@ module AthenaHealth
 					method: :post,
 					body: params
 				)
-				FeescheduleProcedure.new(response.first)
 			end
 
 			# DELETE

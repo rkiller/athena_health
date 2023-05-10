@@ -33,6 +33,25 @@ module AthenaHealth
 					body: params
 				)
 			end
+
+			# Returns:
+			# {
+			#   "employerid": 0
+			# }
+			def update_employer(practice_id:, employer_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/employers/#{employer_id}",
+					method: :put,
+					body: params
+				)
+			end
+
+			def delete_employer(practice_id:, employer_id:)
+				@api.call(
+					endpoint: "#{practice_id}/employers/#{employer_id}",
+					method: :delete
+				)
+			end
 		end
 	end
 end
