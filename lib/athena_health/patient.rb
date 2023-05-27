@@ -412,11 +412,11 @@ module AthenaHealth
     attribute :lastemail,                            String
     attribute :guarantorsuffix,                      String
     attribute :guarantoremployerid,                  Integer
+    attribute :employerid,                           Integer
+    attribute :employername,                         String
     attribute :employeraddress,                      String
     attribute :employercity,                         String
     attribute :employerfax,                          String
-    attribute :employerid,                           Integer
-    attribute :employername,                         String
     attribute :employerphone,                        String
     attribute :employerstate,                        String
     attribute :employerzip,                          String

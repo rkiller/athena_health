@@ -20,6 +20,19 @@ module AthenaHealth
         )
       end
 
+      # Get list of patient's lab result documents
+      # GET/v1/{practiceid}/patients/{patientid}/documents/labresult 
+
+      def patient_lab_result_documents(practice_id:, department_id:, patient_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/documents/labresults",
+          method: :get,
+          params: params.merge!(departmentid: department_id)
+        )
+
+        DocumentCollection.new(response)
+      end
+
     end
   end
 end
