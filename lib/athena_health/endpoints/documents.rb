@@ -29,8 +29,12 @@ module AthenaHealth
           method: :get,
           params: params.merge!(departmentid: department_id)
         )
-
-        DocumentCollection.new(response)
+        if ( response.dig("labresults") )
+          documents = { documents["documents"] = response["labresults"] }
+          DocumentCollection.new(documents)
+        else
+          { success: false }
+        end
       end
 
     end
