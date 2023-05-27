@@ -30,7 +30,7 @@ module AthenaHealth
           params: params.merge!(departmentid: department_id)
         )
         if ( response.dig("labresults") )
-          documents = { documents["documents"] = response["labresults"] }
+          documents = {  "documents": response["labresults"] }
           DocumentCollection.new(documents)
         else
           { success: false }
