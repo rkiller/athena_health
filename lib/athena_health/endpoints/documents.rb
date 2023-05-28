@@ -37,7 +37,7 @@ module AthenaHealth
         end
       end
 
-      def patient_record(practice_id:, department_id:, patient_id:, params: {})
+      def patient_records(practice_id:, department_id:, patient_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/documents/patientrecord",
           method: :get,
