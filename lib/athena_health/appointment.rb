@@ -6,6 +6,7 @@ module AthenaHealth
     attribute :appointmentstatus,           String
     attribute :appointmenttype,             String
     attribute :appointmenttypeid,           Integer
+    attribute :appointmentcopay,            Hash
     attribute :cancelleddatetime,           String
     attribute :cancelreasonname,            String
     attribute :cancelreasonnoshow,          Boolean
@@ -40,6 +41,7 @@ module AthenaHealth
 	  attribute :startcheckoutdatetime,       String
     attribute :templateappointmentid,       Integer
     attribute :urgent,                      Boolean
+    attribute :claims,         			        Array[Claim]
     attribute :insurances,         			    Array[Insurance]
 
     def appointment_status
