@@ -37,6 +37,19 @@ module AthenaHealth
         end
       end
 
+      def patient_record(practice_id:, department_id:, patient_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/documents/patientrecord",
+          method: :get,
+          params: params.merge!(departmentid: department_id)
+        )
+        if ( response.dig("patientrecords") )
+          PatientRecordCollection.new(response["patientrecords"])
+        else
+          { success: false }
+        end
+      end
+
     end
   end
 end
