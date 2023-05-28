@@ -44,7 +44,7 @@ module AthenaHealth
           params: params.merge!(departmentid: department_id)
         )
         if ( response.dig("patientrecords") )
-          PatientRecordCollection.new(response["patientrecords"])
+          PatientRecordCollection.new(response)
         else
           { success: false }
         end
