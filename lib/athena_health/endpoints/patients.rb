@@ -352,6 +352,18 @@ module AthenaHealth
         )
       end
 
+      # POST
+      # /v1/{practiceid}/patients/{patientid}/insurances/casepolicies
+      # Create patient's specific case policy
+      def create_casepolicy(practice_id:, patient_id:, insurance_package_id:, params: {})
+        response = @api.call(
+          endpoint: "#{practice_id}/patients/#{patient_id}/insurances/casepolicies",
+          method: :post,
+          body: params.merge!(insurancepackageid: insurance_package_id)
+        )
+        Insurance.new(response[0])
+      end
+
       def get_patient_insurance_card_image(practice_id:, patient_id:, insurance_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/patients/#{patient_id}/insurances/#{insurance_id}/image", 
