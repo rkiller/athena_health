@@ -5,6 +5,6 @@
 #   ],
 module AthenaHealth
 	class EncounterDiagnosis < BaseModel
-		attribute :icd10code, String
+		attribute :icd10codes, String
 	end
 end

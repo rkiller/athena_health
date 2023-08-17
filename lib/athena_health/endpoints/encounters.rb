@@ -45,7 +45,15 @@ module AthenaHealth
         EncounterService.new(response)
       end
 
-      def encounter_hpi_summary(practice_id:, encounter_id:)
+      def encounter_services_update(practice_id:, encounter_id:, params: {})
+        response = @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/services",
+          method: :post,
+          body: params
+        )
+      end
+
+      def encounter_hpi(practice_id:, encounter_id:)
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/hpi",
           method: :get,
@@ -53,7 +61,15 @@ module AthenaHealth
         )
       end
 
-      def encounter_ros_summary(practice_id:, encounter_id:)
+      def encounter_hpi_update(practice_id:, encounter_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/hpi",
+          method: :put,
+          params: params
+        )
+      end
+
+      def encounter_ros(practice_id:, encounter_id:)
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/reviewofsystems",
           method: :get,
@@ -61,7 +77,15 @@ module AthenaHealth
         )
       end
 
-      def encounter_exam_summary(practice_id:, encounter_id:)
+      def encounter_ros_update(practice_id:, encounter_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/reviewofsystems",
+          method: :put,
+          params: params
+        )
+      end
+
+      def encounter_exam(practice_id:, encounter_id:)
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/physicalexam",
           method: :get,
@@ -69,7 +93,15 @@ module AthenaHealth
         )
       end
 
-      def encounter_goals_summary(practice_id:, encounter_id:)
+      def encounter_exam_update(practice_id:, encounter_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/physicalexam",
+          method: :put,
+          params: params
+        )
+      end
+
+      def encounter_goals(practice_id:, encounter_id:)
         response = @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals",
           method: :get
@@ -82,6 +114,30 @@ module AthenaHealth
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/assessment",
           method: :get,
           params: { showstructured: false}
+        )
+      end
+
+      def encounter_assessment_update(practice_id:, encounter_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/assessment",
+          method: :put,
+          params: params
+        )
+      end
+
+      def encounter_diagnoses(practice_id:, encounter_id:)
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/diagnoses",
+          method: :get,
+          params: { showstructured: false}
+        )
+      end
+
+      def encounter_diagnoses_update(practice_id:, encounter_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/diagnoses",
+          method: :post,
+          body: params
         )
       end
 
