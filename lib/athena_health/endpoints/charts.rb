@@ -2,6 +2,13 @@ module AthenaHealth
 	module Endpoints
 		module Charts
 
+			def vitals(practice_id:)
+				@api.call(
+					endpoint:  "#{practice_id}/chart/configuration/vitals",
+					method: :get
+				)
+			end
+
 			def get_patient_allergies(practice_id:, patient_id:)
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/allergies",
