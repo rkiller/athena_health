@@ -9,7 +9,7 @@ module AthenaHealth
         Encounter.new(response.first)
       end
 
-      def encounter_reasons(practice_id:, department_id:)
+      def encounter_reasons(practice_id:)
         @api.call(
           endpoint: "#{practice_id}/configuration/encounterreasons",
           method: :get
