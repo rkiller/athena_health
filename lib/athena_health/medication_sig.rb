@@ -1,5 +1,5 @@
 module AthenaHealth
-  class UserMedicationSig < BaseModel
+  class MedicationSig < BaseModel
     attribute :dosageroute,                  String
     attribute :dosageaction,                 String
     attribute :dosageadditionalinstructions, String

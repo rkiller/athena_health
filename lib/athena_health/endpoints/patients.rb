@@ -55,24 +55,6 @@ module AthenaHealth
         )
       end
 
-      def create_patient_problem(practice_id:, department_id:, patient_id:, snomed_code:, params: {})
-        @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/problems",
-          method: :post,
-          body: params.merge!(departmentid: department_id, snomedcode: snomed_code)
-        )
-      end
-
-      def find_patient_problems(practice_id:, department_id:, patient_id:)
-        response = @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/problems",
-          method: :get,
-          params: { departmentid: department_id }
-        )
-
-        PatientProblemCollection.new(response)
-      end
-
       def patient_encounters(practice_id:, department_id:, patient_id:, params: {})
         response = @api.call(
           endpoint: "#{practice_id}/chart/#{patient_id}/encounters",
@@ -256,52 +238,6 @@ module AthenaHealth
         )
 
         SocialHistory.new(response)
-      end
-
-      def patient_medications(practice_id:, department_id:, patient_id:, params: {})
-        response = @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/medications",
-          method: :get,
-          params: params.merge!(departmentid: department_id)
-        )
-
-        response['medications'] = response['medications'].flatten
-
-        UserMedicationCollection.new(response)
-      end
-
-      def add_patient_medication(practice_id:, department_id:, patient_id:, medication_id:, params: {})
-        response = @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/medications",
-          method: :post,
-          body: params.merge!(departmentid: department_id, medicationid: medication_id)
-        )
-      end
-
-      def update_patient_medications(practice_id:, department_id:, patient_id:, params: {})
-        response = @api.call(
-            endpoint: "#{practice_id}/chart/#{patient_id}/medications",
-            method: :put,
-            body: params.merge!(departmentid: department_id)
-        )
-      end
-
-      def patient_allergies(practice_id:, department_id:, patient_id:, params: {})
-        response = @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/allergies",
-          method: :get,
-          params: params.merge!(departmentid: department_id)
-        )
-
-        UserAllergyCollection.new(response)
-      end
-
-      def update_patient_allergies(practice_id:, department_id:, patient_id:, allergies:, params: {})
-        response = @api.call(
-          endpoint: "#{practice_id}/chart/#{patient_id}/allergies",
-          method: :put,
-          params: params.merge!(departmentid: department_id, allergies: allergies.to_json)
-        )
       end
 
       def verify_patient_privacy_information(practice_id:, department_id:, patient_id:, params: {})

@@ -87,7 +87,7 @@ module AthenaHealth
     attribute :providernote,            String
     attribute :quantityunit,            String
     attribute :issafetorenew,           String
-    attribute :structuredsig,           Array[UserMedicationCollection]
+    attribute :structuredsig,           Array[MedicationSig]
     attribute :isdiscontinued,          String
     attribute :refillsallowed,          Integer
     attribute :isstructuredsig,         String
