@@ -124,6 +124,54 @@ module AthenaHealth
 				)
 			end
 
+			def get_patient_family_history(practice_id:, patient_id:)
+				response = @api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/familyhistory",
+					method: :get
+				)
+				ProblemCollection.new(response)
+			end
+
+			def update_patient_family_history(practice_id:, patient_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/familyhistory",
+					method: :put,
+					body: params
+				)
+			end
+
+			def get_patient_social_history(practice_id:, patient_id:)
+				response = @api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/socialhistory",
+					method: :get
+				)
+				ProblemCollection.new(response)
+			end
+
+			def update_patient_social_history(practice_id:, patient_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/socialhistory",
+					method: :put,
+					body: params
+				)
+			end
+
+			def get_patient_medical_history(practice_id:, patient_id:)
+				response = @api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/medicalhistory",
+					method: :get
+				)
+				ProblemCollection.new(response)
+			end
+
+			def update_patient_medical_history(practice_id:, patient_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/medicalhistory",
+					method: :put,
+					body: params
+				)
+			end
+
 		end
 	end
 end
