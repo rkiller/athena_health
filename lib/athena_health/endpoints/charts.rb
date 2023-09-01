@@ -78,6 +78,7 @@ module AthenaHealth
 					method: :get,
 					params: params.merge!(departmentid: department_id)
 				)
+				puts response
 				MedicationCollection.new(medications: response.map{ |medication| Medication.new(medication) })
 			end
 
