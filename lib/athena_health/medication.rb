@@ -1,6 +1,3 @@
-# {
-#   "lastupdated": "string",
-#   "medications": [
 #     {
 #       "route": "string",
 #       "events": [
@@ -54,15 +51,6 @@
 #       "therapeuticclass": "string",
 #       "medicationentryid": "string"
 #     }
-#   ],
-#   "sectionnote": "string",
-#   "lastdownloaddenied": "",
-#   "lastdownloadeddate": "string",
-#   "nomedicationsreported": "",
-#   "patientdownloadconsent": "",
-#   "lastdownloaddenialreason": "string",
-#   "patientneedsdownloadconsent": ""
-# }
 module AthenaHealth
   class Medication < BaseModel
     attribute :route,                   String
