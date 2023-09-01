@@ -68,7 +68,7 @@ module AthenaHealth
 		attribute :lastupdated,                 String
 		attribute :medications,                 Array[Array[Medication]]
 		attribute :sectionnote,                 String
-		attribute :lastdownloaddenied,          String
+		attribute :lastdownloaddenied,          Boolean
 		attribute :lastdownloadeddate,          String
 		attribute :nomedicationsreported,       Boolean
 		attribute :patientdownloadconsent,      Boolean

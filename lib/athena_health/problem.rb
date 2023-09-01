@@ -44,7 +44,6 @@
 #   "lastmodifieddatetime": "string",
 #   "notelastmodifieddatetime": "string"
 # }
-
 module AthenaHealth
 	class Problem < BaseModel
 		attribute :code,                    String
