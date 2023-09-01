@@ -72,10 +72,11 @@ module AthenaHealth
 			#             body: params.merge!(departmentid: department_id)
 			#         )
 			#       end
-			def get_patient_medications(practice_id:, patient_id:)
+			def get_patient_medications(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/medications",
-					method: :get
+					method: :get,
+					params: params.merge!(departmentid: department_id)
 				)
 				MedicationCollection.new(response)
 			end
@@ -109,10 +110,11 @@ module AthenaHealth
 			#
 			#
 
-			def get_patient_problems(practice_id:, patient_id:)
+			def get_patient_problems(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/problems",
-					method: :get
+					method: :get,
+					params: params.merge!(departmentid: department_id)
 				)
 				ProblemCollection.new(response)
 			end
@@ -125,12 +127,13 @@ module AthenaHealth
 				)
 			end
 
-			def get_patient_family_history(practice_id:, patient_id:)
+			def get_patient_family_history(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/familyhistory",
-					method: :get
+					method: :get,
+					params: params.merge!(departmentid: department_id)
 				)
-				ProblemCollection.new(response)
+				FamilyHistory.new(response)
 			end
 
 			def update_patient_family_history(practice_id:, patient_id:, params: {})
@@ -141,12 +144,13 @@ module AthenaHealth
 				)
 			end
 
-			def get_patient_social_history(practice_id:, patient_id:)
+			def get_patient_social_history(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/socialhistory",
-					method: :get
+					method: :get,
+					params: params.merge!(departmentid: department_id)
 				)
-				ProblemCollection.new(response)
+				SocialHistory.new(response)
 			end
 
 			def update_patient_social_history(practice_id:, patient_id:, params: {})
@@ -157,12 +161,13 @@ module AthenaHealth
 				)
 			end
 
-			def get_patient_medical_history(practice_id:, patient_id:)
+			def get_patient_medical_history(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/medicalhistory",
-					method: :get
+					method: :get,
+					params: params.merge!(departmentid: department_id)
 				)
-				ProblemCollection.new(response)
+				MedicalHistory.new(response)
 			end
 
 			def update_patient_medical_history(practice_id:, patient_id:, params: {})
