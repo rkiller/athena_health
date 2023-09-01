@@ -26,5 +26,6 @@ module AthenaHealth
     include Endpoints::Documents
     include Endpoints::Employers
     include Endpoints::Feeschedules
+    include Endpoints::Charts
   end
 end
