@@ -65,14 +65,14 @@
 # }
 module AthenaHealth
 	class MedicationCollection < BaseModel
-		attribute :lastupdated,             String
-		attribute :medications,             Array[Medication]
-		attribute :sectionnote,             String
-		attribute :lastdownloaddenied,      String
-		attribute :lastdownloadeddate,      String
-		attribute :nomedicationsreported,   String
-		attribute :patientdownloadconsent,  String
-		attribute :lastdownloaddenialreason, String
-		attribute :patientneedsdownloadconsent, String
+		attribute :lastupdated,                 String
+		attribute :medications,                 Array[Array[Medication]]
+		attribute :sectionnote,                 String
+		attribute :lastdownloaddenied,          String
+		attribute :lastdownloadeddate,          String
+		attribute :nomedicationsreported,       Boolean
+		attribute :patientdownloadconsent,      Boolean
+		attribute :lastdownloaddenialreason,    String
+		attribute :patientneedsdownloadconsent, Boolean
 	end
 end
