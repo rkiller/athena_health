@@ -88,7 +88,7 @@ module AthenaHealth
         )
       end
 
-      def encounter_hpi(practice_id:, encounter_id:, params: { showstructured: false})
+      def encounter_hpi(practice_id:, encounter_id:, params: { showstructured: false })
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/hpi",
           method: :get,
