@@ -17,6 +17,6 @@ module AthenaHealth
 		attribute :documentid, Integer
 		attribute :servicetype, String
 		attribute :procedurecode, String
-		attribute :billforservice, String
+		attribute :billforservice, Boolean
 	end
 end
