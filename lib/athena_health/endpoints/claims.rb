@@ -12,6 +12,22 @@ module AthenaHealth
         Claim.new(response)
       end
 
+      def create_claim(practice_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/claims",
+          method: :post,
+          body: params
+        )
+      end
+
+      def create_claim_with_appointment(practice_id:, appointment_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/appointments/#{appointment_id}/claim",
+          method: :post,
+          body: params
+        )
+      end
+
     end
   end
 end
