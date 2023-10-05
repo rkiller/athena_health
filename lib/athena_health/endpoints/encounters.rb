@@ -17,10 +17,12 @@ module AthenaHealth
       end
 
       def encounter_reason(practice_id:, encounter_id:)
-        @api.call(
+        response = @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/encounterreasons",
           method: :get
         )
+
+        EncounterReason.new(response)
       end
 
       def encounter_reason_update(practice_id:, encounter_id:, params: {})

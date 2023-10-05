@@ -28,6 +28,14 @@ module AthenaHealth
         )
       end
 
+      def claim_note( practice_id:, claim_id:, params: {})
+        @api.call(
+          endpoint: "#{practice_id}/claims/#{claim_id}/note",
+          method: :post,
+          body: params
+        )
+      end
+
     end
   end
 end
