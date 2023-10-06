@@ -21,11 +21,10 @@ module AthenaHealth
       end
 
       def create_claim_with_appointment(practice_id:, appointment_id:, params: {})
-        puts params
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/claim",
           method: :post,
-          params: params
+          body: params
         )
       end
 
