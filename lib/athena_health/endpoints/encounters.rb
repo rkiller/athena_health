@@ -118,7 +118,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/reviewofsystems",
           method: :put,
-          body: params
+          params: params
         )
       end
 
