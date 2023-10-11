@@ -102,7 +102,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/hpi",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -118,7 +118,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/reviewofsystems",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -134,7 +134,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/physicalexam",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -150,7 +150,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals/freetextgoal",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -158,7 +158,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals/discussionnotes",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -166,7 +166,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals/patientinstructions",
           method: :put,
-          params: params
+          body: params
         )
       end
 
@@ -182,7 +182,7 @@ module AthenaHealth
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/assessment",
           method: :put,
-          params: params
+          body: params
         )
       end
 
