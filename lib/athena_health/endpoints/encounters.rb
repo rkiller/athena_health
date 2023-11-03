@@ -162,7 +162,7 @@ module AthenaHealth
         )
       end
 
-      def encounter_goals_instructions(practice_id:, encounter_id:, params: {})
+      def s(practice_id:, encounter_id:, params: {})
         @api.call(
           endpoint:  "#{practice_id}/chart/encounter/#{encounter_id}/patientgoals/patientinstructions",
           method: :put,
