@@ -83,10 +83,25 @@ module AthenaHealth
       end
 
       def encounter_services_update(practice_id:, encounter_id:, params: {})
-        response = @api.call(
+        @api.call(
           endpoint:  "#{practice_id}/encounter/#{encounter_id}/services",
           method: :post,
           body: params
+        )
+      end
+
+      def encounter_service_update(practice_id:, encounter_id:, service_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/services/#{service_id}",
+          method: :put,
+          body: params
+        )
+      end
+
+      def encounter_service_delete(practice_id:, encounter_id:, service_id:, params: {})
+        @api.call(
+          endpoint:  "#{practice_id}/encounter/#{encounter_id}/services/#{service_id}",
+          method: :delete
         )
       end
 
