@@ -68,5 +68,6 @@
 module AthenaHealth
 	class VaccinationCollection < BaseModel
 		attribute :vaccines,                 Array[Vaccination]
+		attribute :vaccinesectionnote,       String
 	end
 end
