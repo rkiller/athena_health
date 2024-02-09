@@ -97,6 +97,40 @@ module AthenaHealth
 				)
 			end
 
+			# Vaccinations
+			def get_patient_vaccinations(practice_id:, patient_id:, department_id:, params: {})
+				response = @api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/vaccines",
+					method: :get,
+					params: params.merge!(departmentid: department_id)
+				)
+				VaccinationCollection.new(response)
+			end
+
+			def create_patient_vaccinations(practice_id:, patient_id:, department_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/vaccines",
+					method: :post,
+					body: params.merge!(departmentid: department_id)
+				)
+			end
+
+			def update_patient_vaccination(practice_id:, patient_id:, vaccination_id:, department_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/vaccines/#{vaccination_id}",
+					method: :put,
+					body: params.merge!(departmentid: department_id)
+				)
+			end
+
+			def delete_patient_vaccination(practice_id:, patient_id:, vaccination_id:, department_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/vaccines/#{vaccination_id}",
+					method: :delete,
+					body: params.merge!(departmentid: department_id)
+				)
+			end
+
 			# This is removed (8.30.23) from patient.rb Added as comment for reference
 			# def create_patient_problem(practice_id:, department_id:, patient_id:, snomed_code:, params: {})
 			#         @api.call(
