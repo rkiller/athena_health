@@ -67,7 +67,7 @@
 
 module AthenaHealth
   class Vaccination < BaseModel
-    attribute :vcx,                        Integer
+    attribute :cvx,                        Integer
     attribute :mvx,                        String
     attribute :ndc,                        String
     attribute :units,                      String
