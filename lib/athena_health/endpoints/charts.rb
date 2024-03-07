@@ -97,6 +97,14 @@ module AthenaHealth
 				)
 			end
 
+			def delete_patient_medication(practice_id:, patient_id:, department_id:, medication_entry_id:, params: {})
+				@api.call(
+					endpoint: "#{practice_id}/chart/#{patient_id}/medications/#{medication_entry_id}",
+					method: :delete,
+					body: params.merge!(departmentid: department_id)
+				)
+			end
+
 			# Vaccinations
 			def get_patient_vaccinations(practice_id:, patient_id:, department_id:, params: {})
 				response = @api.call(
