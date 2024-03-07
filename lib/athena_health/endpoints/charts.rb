@@ -101,7 +101,7 @@ module AthenaHealth
 				@api.call(
 					endpoint: "#{practice_id}/chart/#{patient_id}/medications/#{medication_entry_id}",
 					method: :delete,
-					body: params.merge!(departmentid: department_id)
+					params: params.merge!(departmentid: department_id)
 				)
 			end
 
