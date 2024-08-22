@@ -159,5 +159,6 @@ module AthenaHealth
     attribute :providerid,            Integer
     attribute :priority,              Integer
     attribute :status,                String
+    attribute :originaldocument,      OriginalDocument
   end
 end
