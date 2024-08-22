@@ -3,3 +3,4 @@ module AthenaHealth
 		attribute :contenttype, String
 		attribute :href, String
 	end
+end
