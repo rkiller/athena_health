@@ -360,7 +360,7 @@ module AthenaHealth
         response.is_a?(Array) ? Document.new(response.first) : []
       end
 
-      def get_patient_admin_document(practice_id:, patient_id:, admin_id:)
+      def get_patient_admin_document_attachment(practice_id:, patient_id:, admin_id:)
         @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}/originaldocument",
             method: :get
