@@ -361,7 +361,7 @@ module AthenaHealth
       end
 
       def get_patient_admin_document_attachment(practice_id:, patient_id:, admin_id:)
-        @api.call(
+        response = @api.call(
             endpoint: "#{practice_id}/patients/#{patient_id}/documents/admin/#{admin_id}/originaldocument",
             method: :get,
             raw: true
