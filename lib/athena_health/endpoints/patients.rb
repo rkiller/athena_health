@@ -366,6 +366,7 @@ module AthenaHealth
             method: :get,
             raw: true
         )
+        StringIO.new(Base64.encode64(response))
       end
 
       def get_patient_admin_document_image(practice_id:, patient_id:, admin_id:, page_id:, params: {})
