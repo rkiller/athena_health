@@ -32,7 +32,7 @@ module AthenaHealth
     end
 
     def render
-      fail ERROR_TYPES[@code]
+      fail ERROR_TYPES[@code] || InternalServerError
     end
   end
 end
